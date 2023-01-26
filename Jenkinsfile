@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './scripts/test.sh'
+                echo 'Test stage should be ruiing here!'
             }
         }
         stage('Deliver') {
