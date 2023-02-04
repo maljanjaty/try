@@ -9,13 +9,13 @@ pipeline {
         HOME = '.'
     }
     stages {
-    /*    stage('Lint') {
+        stage('Lint') {
             steps {
-                sh 'npm run lint'
-                sh 'npm run lint:fix'
+                sh 'npx eslint src/app.js'
+             //   sh 'npm run lint:fix'
             }
         }
-        */
+        
         stage('Build') {
             steps {
                 sh 'npm install'
