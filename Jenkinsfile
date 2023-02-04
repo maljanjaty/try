@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'node src.app.js'
+                sh 'node src/app.js'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './scripts/kill.sh'
             }
