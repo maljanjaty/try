@@ -9,6 +9,10 @@ pipeline {
         HOME = '.'
     }
     stages {
+        stage('Lint') {
+            steps {
+                sh 'npm run lint'
+            }
         stage('Build') {
             steps {
                 sh 'npm install'
@@ -21,7 +25,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'node app'
+                sh 'node src.app.js'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './scripts/kill.sh'
             }
