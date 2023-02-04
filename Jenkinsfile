@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'npm run lint'
             }
+        }
         stage('Build') {
             steps {
                 sh 'npm install'
