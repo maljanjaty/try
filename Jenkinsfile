@@ -12,7 +12,7 @@ pipeline {
         stage('Lint') {
             steps {
                 sh 'npx eslint src/app.js'
-             //   sh 'npm run lint:fix'
+                sh 'npm run lint:fix'
             }
         }
         
