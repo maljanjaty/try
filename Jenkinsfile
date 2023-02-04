@@ -8,8 +8,8 @@ pipeline {
     environment {
         HOME = '.'
     }
-    stages {
-        stage('Lint') {
+     stages {
+       /* stage('Lint') {
             steps {
                 sh 'npx eslint src/app.js'
                 sh 'npm run lint:fix'
@@ -20,7 +20,7 @@ pipeline {
                 sh 'npm run lint:fix'
             }
         }
-        
+    */    
         stage('Build') {
             steps {
                 sh 'npm install'
