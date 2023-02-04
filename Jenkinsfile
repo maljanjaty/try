@@ -12,6 +12,10 @@ pipeline {
         stage('Lint') {
             steps {
                 sh 'npm run lint'
+            }
+        }
+        stage('Lintfix') {
+            steps {
                 sh 'npm run lint:fix'
             }
         }
