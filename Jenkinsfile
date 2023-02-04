@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test stage should be ruiing here!'
+                echo 'Test stage should be runing here!'
             }
         }
         stage('Deliver') {
