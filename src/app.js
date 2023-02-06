@@ -20,13 +20,6 @@ app.get('/', (req, res) => {
   res.render('page/index');
 });
 
-
-  app.listen(5000, function () {
+app.listen(5000, () => {
   console.log('App listening on port 5000!');
-  });
-
-
-
-
-
-
+});
