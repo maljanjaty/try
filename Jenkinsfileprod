@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        dockerfile true {
+        docker {
             image 'node:lts-buster-slim'
             args '-p 3000:3000'
         }
@@ -19,11 +19,9 @@ pipeline {
                 echo 'Test stage should be ruiing here!'
             }
         }
-        stage('Deliver') {
+        stage('Create app Docker Image'){
             steps {
-                sh 'node app'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './scripts/kill.sh'
+                sh "docker build . -t calcul:${env.BUILD_ID}"
             }
         }
     }
