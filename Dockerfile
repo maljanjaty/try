@@ -1,5 +1,4 @@
 FROM node:lts-buster-slim
-COPY package.json .
 COPY . .
 
 FROM nginx

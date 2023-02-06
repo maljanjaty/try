@@ -1,8 +1,6 @@
 pipeline {
     agent {
-        docker {
-            image 'node:lts-buster-slim'
-            args '-p 3000:3000'
+        any
         }
     }
     environment {
@@ -21,7 +19,7 @@ pipeline {
         }
         stage('Create app Docker Image'){
             steps {
-                sh "docker build . -t calcul:${env.BUILD_ID}"
+                sh "docker build ."
             }
         }
     }
