@@ -1,32 +1,29 @@
 pipeline {
-    agent {
-        dockerfile=true
-        }
-    }
+    agent any
     environment {
         HOME = '.'
     }
-     stages {
-     stage('Lint') {
+    stages {
+        stage('Lint') {
             steps {
                 sh 'npm run lint'
             }
         }    
-        stage('Build') {
+        stage('Verify') {
             steps {
-                sh 'npm install'
+                sh '''
+                docker version
+                docker info
+                docker compose version
+                curl --version
+                jq --version
+                '''
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Test stage should be runing here!'
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh 'node src/app.js'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './scripts/kill.sh'
+        stage('Start container'){
+            steps{
+                sh 'docker compose up -d'
+                sh 'docker compose ps'
             }
         }
     }
